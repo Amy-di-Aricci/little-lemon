@@ -1,16 +1,20 @@
 import './App.css';
+import theme from './theme';
 import Footer from './components/Footer';
-import Header from './components/Header';
+import HeaderHome from './components/Header/HeaderHome.jsx';
 import Main from './components/Main';
-import Nav from './components/Nav';
+import Nav from './components/Nav/Nav.jsx';
+import { ThemeProvider } from '@emotion/react';
 
 function App() {
   return (
     <>
-      <Nav/>
-      <Header/>
-      <Main/>
-      <Footer/>
+      <ThemeProvider theme={theme}>
+        <Nav/>
+        <HeaderHome/>
+        <Main/>
+        <Footer/>
+      </ThemeProvider>
     </>
   );
 }

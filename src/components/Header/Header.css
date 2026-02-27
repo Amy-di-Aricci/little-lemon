@@ -1,0 +1,30 @@
+.header {
+	position: relative;
+	overflow: hidden;
+}
+
+.header::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+
+	background-image: var(--bg-image);
+	background-position: var(--bg-position);
+	background-size: cover;
+
+	filter: brightness(var(--bg-brightness));
+
+	opacity: var(--bg-opacity);
+	z-index: 0;
+}
+
+.header-content {
+	position: relative;
+	padding: 48px;
+	z-index: 1;
+}
+
+.grid-container {
+	justify-content: center;
+	align-items: center;
+}

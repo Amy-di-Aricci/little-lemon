@@ -1,7 +1,8 @@
 import { Link } from '@mui/material';
-import logo from '../assets/logo_default.png'
+import logo from 'assets/logo_default.png'
 import { Stack } from '@mui/material';
-import '../index.css';
+import 'index.css';
+import './Nav.css';
 function Nav(){
     return(
         <nav>
