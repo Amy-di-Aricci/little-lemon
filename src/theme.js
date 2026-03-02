@@ -3,11 +3,12 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
 	palette: {
 		primary: {
-			main: "#495E57", // Twój primary
-			contrastText: "#fff", // Tekst na przycisku
+			main: "#495E57",
+			contrastText: "#fff",
 		},
 		secondary: {
 			main: "#F4CE14",
+			contrastText: "#333333",
 		},
 	},
 	typography: {
@@ -28,7 +29,7 @@ const theme = createTheme({
 					textTransform: "none",
 					borderRadius: 8,
 					padding: "6px 48px",
-					height: "48px",
+					minHeight: "48px",
 					width: "auto",
 				},
 			},

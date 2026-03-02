@@ -1,9 +1,9 @@
-import { Stack, Button, Grid, Container } from "@mui/material";
+import { Stack, Button, Grid } from "@mui/material";
 import symbol from "assets/symbol_multicolor.png";
-import Header from "./Header";
+import Header from "../../components/Header/Header";
 import background from "assets/3d3cce7a3104bf255ed0e69195e2a157338c1bff.jpg";
 
-function HeaderHome() {
+function HeaderSection() {
 	return (
 		<>
 			<Header image={background} imagePosition="50% 57%" imageBrightness={0.75}>
@@ -47,7 +47,7 @@ function HeaderHome() {
 							alignItems: "center",
 						}}
 					>
-						<img height={240} src={symbol} />
+						<img height={240} src={symbol} alt="Little Lemon symbol" />
 					</Grid>
 				</Grid>
 			</Header>
@@ -55,4 +55,4 @@ function HeaderHome() {
 	);
 }
 
-export default HeaderHome;
+export default HeaderSection;
