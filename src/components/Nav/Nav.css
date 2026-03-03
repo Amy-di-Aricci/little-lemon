@@ -5,12 +5,17 @@ nav {
 }
 
 .nav-bar {
-	font-family: "Karla", sans-serif;
 	justify-content: space-between;
 	height: 5rem;
 	align-items: center;
+}
 
+.links-list {
+	li {
+		padding: 1rem 2rem;
+	}
 	a {
+		font-family: "Karla", sans-serif;
 		text-decoration: none;
 		text-transform: uppercase;
 		font-weight: 900;
