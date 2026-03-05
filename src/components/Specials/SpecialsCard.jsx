@@ -6,32 +6,39 @@ function SpecialsCard({ image, title, description }) {
 	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 	return (
 		<>
-			{isDesktop ? (
-				<Card className="specials-card">
+			<Card className="specials-card">
+				<Stack
+					direction={{ md: "column", xs: "row" }}
+					sx={{
+						height: "100%",
+					}}
+				>
+					<img src={image} alt={title}></img>
 					<Stack
-						direction={"column"}
-						sx={{
-							height: "100%",
-						}}
+						className="specials-card-content"
+						direction="column"
+						spacing={2}
 					>
-						<img src={image} alt={title}></img>
-						<Stack className="specials-card-content" direction="column">
-							<h1 className="card-title">{title}</h1>
+						<h1 className="card-title">{title}</h1>
 
-							<p>{description}</p>
+						<p>{description}</p>
 
-							<Link className="specials-card-actions" onClick={() => {}}>
-								<Stack direction="row" alignItems="center">
-									<p>Order for delivery</p>
-									<ChevronRight />
-								</Stack>
-							</Link>
-						</Stack>
+						<Link className="specials-card-actions" onClick={() => {}}>
+							<Stack
+								direction="row"
+								alignItems="center"
+								justifyContent={{
+									md: "left",
+									xs: "right",
+								}}
+							>
+								<p>Order for delivery</p>
+								<ChevronRight />
+							</Stack>
+						</Link>
 					</Stack>
-				</Card>
-			) : (
-				<></>
-			)}
+				</Stack>
+			</Card>
 		</>
 	);
 }
