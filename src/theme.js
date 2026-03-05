@@ -18,6 +18,9 @@ const theme = createTheme({
 			fontWeight: 900,
 			fontSize: "20px",
 		},
+		link: {
+			textDecoration: "none",
+		},
 	},
 	shape: {
 		borderRadius: 8,

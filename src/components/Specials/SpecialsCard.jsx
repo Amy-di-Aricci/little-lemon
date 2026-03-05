@@ -1,0 +1,39 @@
+import { ChevronRight } from "@mui/icons-material";
+import { Card, useMediaQuery, useTheme, Stack, Link } from "@mui/material";
+
+function SpecialsCard({ image, title, description }) {
+	const theme = useTheme();
+	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+	return (
+		<>
+			{isDesktop ? (
+				<Card className="specials-card">
+					<Stack
+						direction={"column"}
+						sx={{
+							height: "100%",
+						}}
+					>
+						<img src={image} alt={title}></img>
+						<Stack className="specials-card-content" direction="column">
+							<h1 className="card-title">{title}</h1>
+
+							<p>{description}</p>
+
+							<Link className="specials-card-actions" onClick={() => {}}>
+								<Stack direction="row" alignItems="center">
+									<p>Order for delivery</p>
+									<ChevronRight />
+								</Stack>
+							</Link>
+						</Stack>
+					</Stack>
+				</Card>
+			) : (
+				<></>
+			)}
+		</>
+	);
+}
+
+export default SpecialsCard;

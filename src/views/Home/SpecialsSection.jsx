@@ -1,0 +1,37 @@
+import { Stack, Button } from "@mui/material";
+
+const { default: SpecialsCarousel } = require("components/Specials/Specials");
+
+function SpecialsSection() {
+	return (
+		<section className="container">
+			<Stack direction="column" spacing={6}>
+				<Stack
+					sx={{
+						display: "flex",
+						justifyContent: "space-between",
+						alignItems: "center",
+						flexWrap: "wrap",
+						gap: "24px",
+					}}
+					direction="row"
+				>
+					<h1 className="section-heading">Specials</h1>
+					<Button
+						color="secondary"
+						variant="contained"
+						size="medium"
+						sx={{
+							width: "auto",
+						}}
+					>
+						Online menu
+					</Button>
+				</Stack>
+				<SpecialsCarousel />
+			</Stack>
+		</section>
+	);
+}
+
+export default SpecialsSection;
