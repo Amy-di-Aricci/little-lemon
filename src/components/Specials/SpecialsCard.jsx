@@ -1,9 +1,7 @@
 import { ChevronRight } from "@mui/icons-material";
-import { Card, useMediaQuery, useTheme, Stack, Link } from "@mui/material";
+import { Card, Stack, Link } from "@mui/material";
 
 function SpecialsCard({ image, title, description }) {
-	const theme = useTheme();
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 	return (
 		<>
 			<Card className="specials-card">
