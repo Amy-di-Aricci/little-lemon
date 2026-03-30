@@ -1,6 +1,7 @@
 import HeaderSection from "./HeaderSection";
 import Main from "components/Main";
 import SpecialsSection from "./SpecialsSection";
+import TestimonialsSection from "./TestimonialsSection";
 
 function Home() {
 	return (
@@ -8,6 +9,7 @@ function Home() {
 			<HeaderSection />
 			<Main>
 				<SpecialsSection />
+				<TestimonialsSection />
 			</Main>
 		</>
 	);

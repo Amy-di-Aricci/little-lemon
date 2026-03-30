@@ -2,8 +2,8 @@ import SpecialsCard from "./SpecialsCard";
 import greekSaladImg from "assets/3b97d1aaeb0c85a7222b2a4f2553d496ed5bd115.jpg";
 import bruschettaImg from "assets/5a56cb0a6cea7dd9e4260ae87b268bd3eee8527d.jpg";
 import grilledFishImg from "assets/871655af5e4849aa43a6d293284825002e7aeb50.jpg";
-import { Grid } from "@mui/material";
 import "./Specials.css";
+import TrippletContainer from "components/Tripplet/TrippletContainer";
 
 const cardItems = [
 	{
@@ -28,25 +28,11 @@ const cardItems = [
 
 function SpecialsCarousel() {
 	return (
-		<>
-			<Grid container alignItems={"stretch"} spacing={2}>
-				{cardItems.map(({ image, title, description }) => (
-					<Grid
-						key={title}
-						size={{
-							xs: 12,
-							md: 4,
-						}}
-					>
-						<SpecialsCard
-							image={image}
-							title={title}
-							description={description}
-						/>
-					</Grid>
-				))}
-			</Grid>
-		</>
+		<TrippletContainer>
+			{cardItems.map(({ image, title, description }) => (
+				<SpecialsCard image={image} title={title} description={description} />
+			))}
+		</TrippletContainer>
 	);
 }
 
