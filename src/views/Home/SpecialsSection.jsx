@@ -4,8 +4,8 @@ const { default: SpecialsCarousel } = require("components/Specials/Specials");
 
 function SpecialsSection() {
 	return (
-		<section className="container">
-			<Stack direction="column" spacing={6}>
+		<section>
+			<Stack className="container" direction="column" spacing={6}>
 				<Stack
 					sx={{
 						display: "flex",
