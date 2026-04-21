@@ -1,0 +1,26 @@
+.img-stack {
+	position: relative;
+	width: 28rem;
+	height: 40rem;
+}
+
+.img-stack img {
+	height: 30rem;
+	position: absolute;
+	aspect-ratio: 2/3;
+	object-fit: cover;
+	border-radius: 0.5rem;
+	box-shadow: 0 4px 4px #00000036;
+}
+
+.img-front {
+	bottom: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.img-back {
+	top: 0;
+	right: 0;
+	z-index: 1;
+}
