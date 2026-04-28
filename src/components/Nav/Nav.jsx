@@ -79,7 +79,11 @@ function Nav() {
 										</Box>
 										<List className="links-list">
 											{navLinks.map(({ label, href }) => (
-												<ListItem key={label} disablePadding>
+												<ListItem
+													key={label}
+													disablePadding
+													onClick={() => setDrawerOpen(false)}
+												>
 													<Link key={label} href={href}>
 														{label}
 													</Link>

@@ -54,8 +54,8 @@ section {
 section:nth-of-type(even) {
 	background-image: repeating-linear-gradient(
 		to right,
-		#edefee,
-		#edefee 60px,
+		#f2f3f2,
+		#f2f3f2 60px,
 		#ffffff 60px,
 		#ffffff 120px
 	);
