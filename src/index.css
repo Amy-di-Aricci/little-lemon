@@ -129,4 +129,12 @@ section:nth-of-type(even) {
 	height: 320px;
 	object-fit: cover;
 	object-position: 50% 90%;
+	display: block;
+}
+
+.mobile-no-bottom-margin {
+	@media screen and (max-width: 900px) {
+		margin-bottom: 0px;
+		padding-bottom: 0px;
+	}
 }
