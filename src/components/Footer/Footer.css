@@ -1,0 +1,37 @@
+footer {
+	background-color: var(--primary-color);
+	padding: 3rem;
+}
+
+.footer-logo {
+	height: 16rem;
+}
+
+footer {
+	h1 {
+		font-family: "Markazi Text", serif;
+		font-weight: bold;
+		font-size: 32px;
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+
+	p {
+		font-weight: 500;
+	}
+}
+
+footer .white {
+	a {
+		color: white;
+		font-weight: 500;
+		text-decoration: none;
+	}
+	a:hover {
+		color: var(--primary-lightest);
+	}
+}
+
+.monocolor-white {
+	filter: brightness(100);
+}

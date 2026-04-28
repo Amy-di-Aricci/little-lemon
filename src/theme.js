@@ -12,6 +12,7 @@ const theme = createTheme({
 		},
 	},
 	typography: {
+		fontFamily: "Karla, sans-serif",
 		button: {
 			textTransform: "none",
 			fontFamily: "Karla, sans-serif",

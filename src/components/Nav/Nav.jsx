@@ -16,14 +16,7 @@ import logo from "assets/logo_default.png";
 import "index.css";
 import "./Nav.css";
 
-const navLinks = [
-	{ label: "Home", href: "/" },
-	{ label: "About", href: "/#about" },
-	{ label: "Menu", href: "/#menu" },
-	{ label: "Reservations", href: "/reservations" },
-	{ label: "Order online", href: "/order" },
-	{ label: "Login", href: "/login" },
-];
+import { navLinks } from "globals/navConfig";
 
 function Nav() {
 	const [drawerOpen, setDrawerOpen] = useState(false);
@@ -79,7 +72,11 @@ function Nav() {
 										</Box>
 										<List className="links-list">
 											{navLinks.map(({ label, href }) => (
-												<ListItem key={label} disablePadding>
+												<ListItem
+													key={label}
+													disablePadding
+													onClick={() => setDrawerOpen(false)}
+												>
 													<Link key={label} href={href}>
 														{label}
 													</Link>

@@ -7,7 +7,7 @@ function AboutSection() {
 	const theme = useTheme();
 	const isMedium = useMediaQuery(theme.breakpoints.up("md"));
 	return (
-		<section>
+		<section id="about">
 			<Stack
 				className="container"
 				direction={{ md: "row", xs: "column" }}

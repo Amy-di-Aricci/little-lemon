@@ -1,6 +1,6 @@
 import "./App.css";
 import theme from "./theme";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer.jsx";
 import Home from "./views/Home/Home.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 import { ThemeProvider } from "@emotion/react";
