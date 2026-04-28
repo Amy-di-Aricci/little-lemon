@@ -1,0 +1,11 @@
+.not-found {
+	flex-grow: 1;
+	align-items: center;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+
+	img {
+		max-height: 272px;
+		object-fit: contain;
+	}
+}
