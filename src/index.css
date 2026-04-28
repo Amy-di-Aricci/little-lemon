@@ -19,6 +19,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	--primary-color: #495e57;
 	--primary-lighten: #77968c;
+	--primary-lightest: #b5cec6;
 	--primary-darken: #1c2522;
 	--secondary-color: #f4ce14;
 	--secondary-lighten: #f9e275;
@@ -33,6 +34,7 @@ a {
 	font-size: 16px;
 	height: 100%;
 }
+
 a:hover {
 	color: var(--primary-darken);
 }
