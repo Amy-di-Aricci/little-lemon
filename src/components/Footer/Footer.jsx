@@ -9,20 +9,25 @@ function Footer() {
 	return (
 		<footer>
 			<Grid container className="container white" spacing={3}>
-				<Grid size={3} p={1.25}>
+				<Grid
+					display={"flex"}
+					justifyContent={{ xs: "center", sm: "flex-start" }}
+					size={{ md: 3, sm: 6, xs: 12 }}
+					p={1.25}
+				>
 					<img
 						alt="Little Lemon"
 						src={logo}
 						className="footer-logo monocolor-white"
 					/>
 				</Grid>
-				<Grid size={3}>
+				<Grid size={{ md: 3, sm: 6, xs: 12 }}>
 					<Stack gap={2}>
 						<h1>Sitemap</h1>
 						<SitemapList />
 					</Stack>
 				</Grid>
-				<Grid size={3}>
+				<Grid size={{ md: 3, sm: 6, xs: 12 }}>
 					<Stack gap={2}>
 						<h1>Contact</h1>
 						<Stack gap={1}>
@@ -35,7 +40,7 @@ function Footer() {
 						</Stack>
 					</Stack>
 				</Grid>
-				<Grid size={3}>
+				<Grid size={{ md: 3, sm: 6, xs: 12 }}>
 					<Stack gap={2}>
 						<h1>Social Media</h1>
 						<Stack gap={1}>
