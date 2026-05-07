@@ -35,8 +35,12 @@ body {
 	--secondary-color: #f4ce14;
 	--secondary-lighten: #f9e275;
 	--secondary-darken: #9b8207;
+	--secondary-darkest: #746105;
 	--background-grey: #edefee;
 	--background-grey-lighten: #f2f3f2;
+	--black-shadow:
+		0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+		0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
 a {
@@ -137,4 +141,16 @@ section:nth-of-type(even) {
 		margin-bottom: 0px;
 		padding-bottom: 0px;
 	}
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.box-shadow {
+	box-shadow: var(--black-shadow);
+}
+
+.text-shadow {
+	text-shadow: var(--black-shadow);
 }

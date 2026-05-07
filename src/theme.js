@@ -27,6 +27,15 @@ const theme = createTheme({
 		borderRadius: 8,
 	},
 	components: {
+		MuiDivider: {
+			styleOverrides: {
+				root: {
+					borderStyle: "dotted",
+					borderColor: "var(--background-grey)",
+					borderWidth: "2px 0px 0px 0px",
+				},
+			},
+		},
 		MuiButton: {
 			styleOverrides: {
 				root: {
