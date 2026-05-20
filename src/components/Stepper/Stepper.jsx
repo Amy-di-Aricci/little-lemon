@@ -1,4 +1,4 @@
-import { IconButton, Button, Stack, Divider } from "@mui/material";
+import { Button, Stack, Divider } from "@mui/material";
 import "./Stepper.css";
 function Stepper({ steps, currentStep, furthestStep, onChangeStep, children }) {
 	return (
@@ -10,32 +10,25 @@ function Stepper({ steps, currentStep, furthestStep, onChangeStep, children }) {
 				spacing={6}
 			>
 				{steps.map((step, index) => {
-					var bgColor = "var(--secondary-lighten)";
-					var textColor = "var(--secondary-darken)";
-					if (index === currentStep) {
-						bgColor = "var(--secondary-color)";
-						textColor = "var(--secondary-darkest)";
-					}
 					return (
 						<>
 							<Stack key={index} alignItems={"center"}>
 								<Button
+									onClick={() => onChangeStep(index)}
 									disabled={index > furthestStep}
 									variant="contained"
+									color={
+										index === currentStep
+											? "secondaryTextDarken"
+											: "secondaryLighten"
+									}
 									sx={{
-										backgroundColor: bgColor,
-										color: textColor,
-										boxShadow: "var(--black-shadow)",
-										"&:hover": {
-											backgroundColor: bgColor,
-											filter: "brightness(0.97)",
-											boxShadow: "var(--black-shadow)",
-										},
 										minWidth: 24,
 										minHeight: 24,
-										width: 28,
-										height: 28,
+										width: 32,
+										height: 32,
 										borderRadius: "50%",
+										borderWidth: "2px",
 										padding: 0,
 										fontWeight: 700,
 									}}
@@ -52,7 +45,7 @@ function Stepper({ steps, currentStep, furthestStep, onChangeStep, children }) {
 
 			<Divider
 				sx={{
-					marginY: "1.5rem",
+					marginTop: "1.5rem",
 				}}
 			/>
 			{children[currentStep]}
