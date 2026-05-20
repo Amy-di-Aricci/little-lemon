@@ -1,14 +1,22 @@
-import { Button, Divider, MenuItem, Stack, TextField } from "@mui/material";
+import {
+	Button,
+	Divider,
+	Grid,
+	MenuItem,
+	Stack,
+	TextField,
+} from "@mui/material";
 import { useState, useEffect } from "react";
 import { DatePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 import { useTimeSlots } from "hooks/useTimeSlots";
+import lemonImg from "assets/symbol_multicolor.png";
 
 function Step1({ onStepChange }) {
 	const [date, setDate] = useState(dayjs().startOf("day"));
 	const [time, setTime] = useState("");
-	const [occasion, setOccasion] = useState();
-	const [guestNumber, setGuestNumber] = useState();
+	const [occasion, setOccasion] = useState("");
+	const [guestNumber, setGuestNumber] = useState(1);
 	const [note, setNote] = useState();
 
 	const timeSlots = useTimeSlots(date);
@@ -36,61 +44,102 @@ function Step1({ onStepChange }) {
 			</Stack>
 			<form onSubmit={handleSubmit}>
 				<Stack spacing={4}>
-					<DatePicker
-						value={date}
-						onChange={(newValue) => setDate(newValue)}
-						label="Date"
-						disablePast
-					/>
-					<TextField
-						select
-						label="Time"
-						value={time}
-						placeholder="Select time"
-						slotProps={{
-							inputLabel: {
-								shrink: time !== "",
-							},
-						}}
-						onChange={(e) => setTime(e.target.value)}
-					>
-						<MenuItem key="default" value="" disabled>
-							<em>Select time</em>
-						</MenuItem>
-						{timeSlots.map((slot) => (
-							<MenuItem key={slot} value={slot}>
-								{slot}
-							</MenuItem>
-						))}
-					</TextField>
-					<TextField
-						select
-						label="Occasion"
-						value={occasion}
-						onChange={(e) => setOccasion(e.target.value)}
-						placeholder="Select occasion"
-						slotProps={{
-							inputLabel: {
-								shrink: occasion !== "",
-							},
-						}}
-					>
-						<MenuItem key="default" value="" disabled>
-							<em>Select occasion</em>
-						</MenuItem>
-						<MenuItem key="birthday" value="birthday">
-							Birthday
-						</MenuItem>
-						<MenuItem key="anniversary" value="anniversary">
-							Anniversary
-						</MenuItem>
-						<MenuItem key="engagement" value="engagement">
-							Engagement
-						</MenuItem>
-					</TextField>
+					<Grid spacing={4} container>
+						<Grid size={{ md: 6, xs: 12 }}>
+							<Stack spacing={4}>
+								<Grid spacing={4} container>
+									<Grid size={{ xs: 12, md: 6 }}>
+										<DatePicker
+											value={date}
+											onChange={(newValue) => setDate(newValue)}
+											label="Date"
+											disablePast
+											slotProps={{
+												textField: { fullWidth: true },
+											}}
+										/>
+									</Grid>
+									<Grid size={{ xs: 12, md: 6 }}>
+										<TextField
+											fullWidth
+											select
+											label="Time"
+											value={time}
+											placeholder="Select time"
+											slotProps={{
+												inputLabel: {
+													shrink: time !== "",
+												},
+											}}
+											onChange={(e) => setTime(e.target.value)}
+										>
+											<MenuItem key="default" value="" disabled>
+												<em>Select time</em>
+											</MenuItem>
+											{timeSlots.map((slot) => (
+												<MenuItem key={slot} value={slot}>
+													{slot}
+												</MenuItem>
+											))}
+										</TextField>
+									</Grid>
+								</Grid>
+
+								<TextField
+									label="No. of guests"
+									type="number"
+									value={guestNumber}
+									onChange={(e) => setGuestNumber(e.target.value)}
+									slotProps={{
+										htmlInput: { min: 1, max: 20 },
+										inputLabel: { shrink: guestNumber !== "" },
+									}}
+								/>
+
+								<TextField
+									select
+									label="Occasion"
+									value={occasion}
+									onChange={(e) => setOccasion(e.target.value)}
+									placeholder="Select occasion"
+									slotProps={{
+										inputLabel: {
+											shrink: occasion !== "",
+										},
+									}}
+								>
+									<MenuItem key="default" value="" disabled>
+										<em>Select occasion</em>
+									</MenuItem>
+									<MenuItem key="birthday" value="birthday">
+										Birthday
+									</MenuItem>
+									<MenuItem key="anniversary" value="anniversary">
+										Anniversary
+									</MenuItem>
+									<MenuItem key="engagement" value="engagement">
+										Engagement
+									</MenuItem>
+								</TextField>
+							</Stack>
+						</Grid>
+						<Grid
+							size={{ md: 6, xs: 1 }}
+							sx={{
+								display: { xs: "none", md: "flex" },
+								alignItems: "center",
+								justifyContent: "center",
+							}}
+						>
+							<img height={"128px"} src={lemonImg} alt="Little Lemon symbol" />
+						</Grid>
+					</Grid>
 					<TextField
 						label="Note"
 						value={note}
+						placeholder="Leave a note or a special request"
+						multiline
+						minRows={3}
 						onChange={(e) => setNote(e.target.value)}
 					/>
 				</Stack>
