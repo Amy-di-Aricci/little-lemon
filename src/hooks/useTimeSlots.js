@@ -22,7 +22,7 @@ const generateTimeSlots = (selectedDate) => {
 		}
 	}
 
-	while (!current.isAfter(end)) {
+	while (current.isBefore(end)) {
 		slots.push(current.format("HH:mm"));
 		current = current.add(interval, "minute");
 	}

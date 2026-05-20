@@ -5,12 +5,12 @@ import {
 	MenuItem,
 	Stack,
 	TextField,
+	Box,
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import { DatePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 import { useTimeSlots } from "hooks/useTimeSlots";
-import lemonImg from "assets/symbol_multicolor.png";
 
 function Step1({ onStepChange }) {
 	const [date, setDate] = useState(dayjs().startOf("day"));
@@ -121,42 +121,62 @@ function Step1({ onStepChange }) {
 										Engagement
 									</MenuItem>
 								</TextField>
+								<TextField
+									label="Note"
+									value={note}
+									placeholder="Leave a note or a special request"
+									multiline
+									minRows={3}
+									onChange={(e) => setNote(e.target.value)}
+								/>
 							</Stack>
 						</Grid>
-						<Grid
-							size={{ md: 6, xs: 1 }}
-							sx={{
-								display: { xs: "none", md: "flex" },
-								alignItems: "center",
-								justifyContent: "center",
-							}}
-						>
-							<img height={"128px"} src={lemonImg} alt="Little Lemon symbol" />
+						<Grid size={{ md: 6, xs: 12 }}>
+							<Box
+								sx={{
+									borderRadius: "16px",
+									border: "1px solid rgba(0, 0, 0, 0.25)",
+									bgcolor: "primary.background",
+									padding: 2,
+								}}
+							>
+								<Stack spacing={2}>
+									<h2 className="section-subheading">Opening hours</h2>
+									<p>
+										We are open daily from 10:00 AM to 10:00 PM. Online
+										reservations are available up to 30 minutes before closing.
+									</p>
+									<h2 className="section-subheading">Reservation policy</h2>
+									<p>
+										Reservations can be modified or cancelled up to 24 hours
+										before your booking time using the link in your confirmation
+										e-mail.
+									</p>
+									<h2 className="section-subheading">Additional information</h2>
+									<p>
+										Please inform us about any allergies or special requests in
+										the note section. If you are running late, we kindly ask you
+										to contact the restaurant.
+									</p>
+								</Stack>
+							</Box>
 						</Grid>
 					</Grid>
-					<TextField
-						label="Note"
-						value={note}
-						placeholder="Leave a note or a special request"
-						multiline
-						minRows={3}
-						onChange={(e) => setNote(e.target.value)}
-					/>
-				</Stack>
 
-				<Divider />
-				<Button
-					sx={{
-						alignSelf: "flex-end",
-						width: "auto",
-						marginTop: "1.5rem",
-					}}
-					color="secondary"
-					variant="contained"
-					type="submit"
-				>
-					Next
-				</Button>
+					<Divider />
+					<Button
+						sx={{
+							alignSelf: "flex-end",
+							width: "auto",
+							marginTop: "1.5rem",
+						}}
+						color="secondary"
+						variant="contained"
+						type="submit"
+					>
+						Next
+					</Button>
+				</Stack>
 			</form>
 		</Stack>
 	);

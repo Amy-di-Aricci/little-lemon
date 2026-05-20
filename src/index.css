@@ -116,6 +116,14 @@ section:nth-of-type(even) {
 	color: var(--primary-color);
 }
 
+.section-subheading {
+	font-family: "Markazi Text", serif;
+	margin: 0;
+	font-weight: bold;
+	font-size: 32px;
+	color: var(--primary-color);
+}
+
 .promo-text {
 	font-family: "Karla", sans-serif;
 	font-size: 20px;
