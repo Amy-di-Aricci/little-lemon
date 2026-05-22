@@ -1,9 +1,9 @@
 import Stepper from "components/Stepper/Stepper";
 import { Stack } from "@mui/material";
 import { useState } from "react";
-import Step1 from "./Step1ReservationDetails";
-import Step2 from "./Step2ContactDetails";
-import Step3 from "./Step3Summary";
+import Step1 from "./steps/Step1ReservationDetails";
+import Step2 from "./steps/Step2ContactDetails";
+import Step3 from "./steps/Step3Summary";
 
 function StepperSection() {
 	const [currentStep, setCurrentStep] = useState(0);

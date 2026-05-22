@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { useMemo } from "react";
+import { useReducer } from "react";
 const generateTimeSlots = (selectedDate) => {
 	const slots = [];
 
@@ -30,11 +30,17 @@ const generateTimeSlots = (selectedDate) => {
 	return slots;
 };
 
-export const useTimeSlots = (date) => {
-	const timeSlots = useMemo(() => {
-		if (!date) return [];
-		return generateTimeSlots(date);
-	}, [date]);
+const initializeTimes = () => {
+	return generateTimeSlots(dayjs().startOf("day"));
+};
 
-	return timeSlots;
+const updateTimes = (state, selectedDate) => {
+	if (!selectedDate) return state;
+	return generateTimeSlots(selectedDate);
+};
+
+export const useTimeSlots = () => {
+	const [timeSlots, dispatch] = useReducer(updateTimes, [], initializeTimes);
+
+	return [timeSlots, dispatch];
 };
