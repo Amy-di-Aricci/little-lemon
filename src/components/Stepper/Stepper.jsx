@@ -1,6 +1,13 @@
 import { Button, Stack, Divider } from "@mui/material";
 import "./Stepper.css";
-function Stepper({ steps, currentStep, furthestStep, onChangeStep, children }) {
+function Stepper({
+	steps,
+	currentStep,
+	furthestStep,
+	onChangeStep,
+
+	children,
+}) {
 	return (
 		<>
 			<Stack
@@ -14,7 +21,9 @@ function Stepper({ steps, currentStep, furthestStep, onChangeStep, children }) {
 						<>
 							<Stack key={index} alignItems={"center"}>
 								<Button
-									onClick={() => onChangeStep(index)}
+									onClick={() => {
+										onChangeStep(index);
+									}}
 									disabled={index > furthestStep}
 									variant="contained"
 									color={

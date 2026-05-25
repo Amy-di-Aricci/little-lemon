@@ -1,19 +1,9 @@
-import {
-	Button,
-	Divider,
-	Grid,
-	MenuItem,
-	Stack,
-	TextField,
-} from "@mui/material";
+import { Grid, MenuItem, Stack, TextField } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
-import { useTimeSlots } from "hooks/useTimeSlots";
-import InformationPanel from "../components/InformationPanel";
 import { useEffect } from "react";
 import dayjs from "dayjs";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-function ReservationDetailsForm({ onStepChange }) {
+
+function ReservationDetailsForm({ form, timeSlots, updateTimeSlots }) {
 	const {
 		values,
 		errors,
@@ -21,31 +11,10 @@ function ReservationDetailsForm({ onStepChange }) {
 		setFieldValue,
 		getFieldProps,
 		handleSubmit,
-	} = useFormik({
-		initialValues: {
-			date: dayjs().startOf("day"),
-			time: "",
-			occasion: "",
-			guestNumber: 1,
-			note: undefined,
-		},
-		onSubmit: (values) => {
-			onStepChange();
-		},
-		validationSchema: Yup.object({
-			date: Yup.mixed().required("Required"),
-			time: Yup.string().required("Required"),
-			guestNumber: Yup.number()
-				.min(1, "Please select a value between 1 and 20")
-				.max(20, "Please select a value between 1 and 20")
-				.integer()
-				.required(),
-		}),
-	});
-
-	const [timeSlots, updateTimeSlots] = useTimeSlots();
+	} = form;
 
 	useEffect(() => {
+		if (values.time !== "") return;
 		if (!values.date) setFieldValue("time", "");
 
 		const isToday = values.date.isSame(dayjs(), "day");
@@ -55,115 +24,102 @@ function ReservationDetailsForm({ onStepChange }) {
 		} else {
 			setFieldValue("time", "");
 		}
-	}, [values.date, timeSlots]);
+	}, [values.date, values.time, timeSlots, setFieldValue]);
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} id="reservation-details-form">
 			<Stack spacing={4}>
-				<Grid spacing={4} container>
-					<Grid size={{ md: 6, xs: 12 }}>
-						<Stack spacing={4}>
-							<Grid spacing={4} container>
-								<Grid size={{ xs: 12, md: 6 }}>
-									<DatePicker
-										{...getFieldProps("date")}
-										onChange={(newValue) => {
-											setFieldValue("date", newValue);
-											updateTimeSlots(newValue);
-										}}
-										label="Date"
-										disablePast
-										slotProps={{
-											textField: { fullWidth: true },
-										}}
-									/>
-								</Grid>
-								<Grid size={{ xs: 12, md: 6 }}>
-									<TextField
-										fullWidth
-										select
-										label="Time"
-										{...getFieldProps("time")}
-										placeholder="Select time"
-										slotProps={{
-											inputLabel: {
-												shrink: values.time !== "",
-											},
-										}}
-									>
-										<MenuItem key="default" value="" disabled>
-											<em>Select time</em>
-										</MenuItem>
-										{timeSlots.map((slot) => (
-											<MenuItem key={slot} value={slot}>
-												{slot}
-											</MenuItem>
-										))}
-									</TextField>
-								</Grid>
-							</Grid>
-
-							<TextField
-								label="No. of guests"
-								type="number"
-								{...getFieldProps("guestNumber")}
+				<Stack spacing={4}>
+					<Grid spacing={4} container>
+						<Grid size={{ xs: 12, md: 6 }}>
+							<DatePicker
+								{...getFieldProps("date")}
+								errors={errors.date}
+								onChange={(newValue) => {
+									setFieldValue("date", newValue);
+									setFieldValue("time", "");
+									updateTimeSlots(newValue);
+								}}
+								label="Date"
+								disablePast
 								slotProps={{
-									htmlInput: { min: 1, max: 20 },
-									inputLabel: { shrink: values.guestNumber !== "" },
+									textField: { fullWidth: true },
 								}}
 							/>
-
+						</Grid>
+						<Grid size={{ xs: 12, md: 6 }}>
 							<TextField
+								fullWidth
 								select
-								label="Occasion"
-								{...getFieldProps("occasion")}
-								placeholder="Select occasion"
+								label="Time"
+								error={touched.time && errors.time !== undefined}
+								helperText={touched.time && errors.time}
+								{...getFieldProps("time")}
+								placeholder="Select time"
 								slotProps={{
 									inputLabel: {
-										shrink: values.occasion !== "",
+										shrink: values.time !== "",
 									},
 								}}
 							>
 								<MenuItem key="default" value="" disabled>
-									<em>Select occasion</em>
+									<em>Select time</em>
 								</MenuItem>
-								<MenuItem key="birthday" value="birthday">
-									Birthday
-								</MenuItem>
-								<MenuItem key="anniversary" value="anniversary">
-									Anniversary
-								</MenuItem>
-								<MenuItem key="engagement" value="engagement">
-									Engagement
-								</MenuItem>
+								{timeSlots.map((slot) => (
+									<MenuItem key={slot} value={slot}>
+										{slot}
+									</MenuItem>
+								))}
 							</TextField>
-							<TextField
-								label="Note"
-								placeholder="Leave a note or a special request"
-								multiline
-								minRows={3}
-								{...getFieldProps("note")}
-							/>
-						</Stack>
+						</Grid>
 					</Grid>
-					<Grid size={{ md: 6, xs: 12 }}>
-						<InformationPanel />
-					</Grid>
-				</Grid>
 
-				<Divider />
-				<Button
-					sx={{
-						alignSelf: "flex-end",
-						width: "auto",
-						marginTop: "1.5rem",
-					}}
-					color="secondary"
-					variant="contained"
-					type="submit"
-				>
-					Next
-				</Button>
+					<TextField
+						label="No. of guests"
+						type="number"
+						error={touched.guestNumber && errors.guestNumber !== undefined}
+						helperText={touched.guestNumber && errors.guestNumber}
+						{...getFieldProps("guestNumber")}
+						slotProps={{
+							htmlInput: { min: 1, max: 20 },
+							inputLabel: { shrink: values.guestNumber !== "" },
+						}}
+					/>
+
+					<TextField
+						select
+						label="Occasion"
+						{...getFieldProps("occasion")}
+						error={touched.occasion && errors.occasion !== undefined}
+						helperText={touched.occasion && errors.occasion}
+						placeholder="Select occasion"
+						slotProps={{
+							inputLabel: {
+								shrink: values.occasion !== "",
+							},
+						}}
+					>
+						<MenuItem key="default" value="" disabled>
+							<em>Select occasion</em>
+						</MenuItem>
+						<MenuItem key="birthday" value="birthday">
+							Birthday
+						</MenuItem>
+						<MenuItem key="anniversary" value="anniversary">
+							Anniversary
+						</MenuItem>
+						<MenuItem key="engagement" value="engagement">
+							Engagement
+						</MenuItem>
+					</TextField>
+					<TextField
+						label="Note"
+						placeholder="Leave a note or a special request"
+						multiline
+						minRows={4}
+						{...getFieldProps("note")}
+					/>
+				</Stack>
 			</Stack>
 		</form>
 	);

@@ -51,11 +51,39 @@ const theme = createTheme({
 				},
 			},
 		},
+		MuiInput: {
+			styleOverrides: {
+				root: {
+					borderWidth: "0px",
+				},
+			},
+		},
 		MuiOutlinedInput: {
 			styleOverrides: {
 				root: {
 					backgroundColor: "#edefee",
 					borderRadius: "8px",
+					boxShadow: "var(--black-shadow)",
+					"&:hover": {
+						backgroundColor: "var(--background-grey-lighten)",
+					},
+					"& .MuiOutlinedInput-notchedOutline": {
+						border: "none",
+					},
+
+					"&:hover .MuiOutlinedInput-notchedOutline": {
+						border: "none",
+					},
+
+					"&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+						border: "none",
+					},
+					"&.Mui-error": {
+						backgroundColor: "#f7ebeb",
+					},
+				},
+				notchedOutline: {
+					border: "none",
 				},
 			},
 		},
@@ -101,6 +129,23 @@ const theme = createTheme({
 				},
 			},
 		},
+		MuiPickersOutlinedInput: {
+			styleOverrides: {
+				root: {
+					boxShadow: "var(--black-shadow)",
+					"&:hover": {
+						backgroundColor: "var(--background-grey-lighten)",
+					},
+					"&.Mui-focused .MuiPickersOutlinedInput-notchedOutline": {
+						border: "none",
+					},
+				},
+				notchedOutline: {
+					border: "none",
+					borderWidth: "0px",
+				},
+			},
+		},
 		MuiPickerPopper: {
 			styleOverrides: {
 				paper: {
@@ -111,7 +156,11 @@ const theme = createTheme({
 		},
 		MuiButton: {
 			styleOverrides: {
-				root: {
+				text: {
+					textTransform: "uppercase",
+					fontSize: "1rem",
+				},
+				contained: {
 					textTransform: "none",
 					borderRadius: 8,
 					padding: "6px 48px",

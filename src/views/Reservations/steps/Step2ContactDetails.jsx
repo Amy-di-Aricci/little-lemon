@@ -1,6 +1,6 @@
 import { Stack, Grid, TextField, Divider, Button } from "@mui/material";
-import { useState } from "react";
-function Step2({ onStepChange }) {
+import { useEffect, useState } from "react";
+function Step2({ onStepChange, onCanNavigateAwayChange }) {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
@@ -8,6 +8,9 @@ function Step2({ onStepChange }) {
 		e.preventDefault();
 		onStepChange();
 	};
+	useEffect(() => {
+		onCanNavigateAwayChange(true);
+	}, [onCanNavigateAwayChange]);
 	return (
 		<Stack>
 			<Stack marginY={6}>

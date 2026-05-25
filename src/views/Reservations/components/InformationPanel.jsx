@@ -4,9 +4,10 @@ function InformationPanel() {
 		<Box
 			sx={{
 				borderRadius: "16px",
-				border: "1px solid rgba(0, 0, 0, 0.25)",
+				boxShadow: "var(--black-shadow)",
 				bgcolor: "primary.background",
-				padding: 2,
+				paddingY: 3,
+				paddingX: 2,
 			}}
 		>
 			<Stack spacing={2}>
