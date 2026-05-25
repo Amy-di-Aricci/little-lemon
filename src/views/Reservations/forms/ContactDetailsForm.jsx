@@ -9,18 +9,21 @@ function ContactDetailsForm({ form }) {
 					<Stack spacing={4}>
 						<TextField
 							{...getFieldProps("name")}
+							id="name-input"
 							error={touched.name && errors.name !== undefined}
 							helperText={touched.name && errors.name}
 							label="Name"
 						/>
 						<TextField
 							{...getFieldProps("email")}
+							id="email-input"
 							error={touched.email && errors.email !== undefined}
 							helperText={touched.email && errors.email}
 							label="E-mail address"
 						/>
 						<TextField
 							{...getFieldProps("phoneNumber")}
+							id="phone-number-input"
 							error={touched.phoneNumber && errors.phoneNumber !== undefined}
 							helperText={touched.phoneNumber && errors.phoneNumber}
 							label="Phone number"

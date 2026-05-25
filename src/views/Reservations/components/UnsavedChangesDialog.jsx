@@ -20,8 +20,8 @@ function UnsavedChangesDialog({ open, onDiscard, onAccept }) {
 					Unsaved changes
 				</DialogTitle>
 				<DialogContentText id="unsaved-changes-dialog-description">
-					You have some unsaved changes. Do you want to discard them and
-					proceed?
+					You have unsaved changes. Are you sure you want to leave this step and
+					discard them?
 				</DialogContentText>
 			</DialogContent>
 			<DialogActions
@@ -32,7 +32,7 @@ function UnsavedChangesDialog({ open, onDiscard, onAccept }) {
 				<Button onClick={onDiscard} autoFocus>
 					Cancel
 				</Button>
-				<Button onClick={onAccept}>Proceed</Button>
+				<Button onClick={onAccept}>Discard changes</Button>
 			</DialogActions>
 		</Dialog>
 	);

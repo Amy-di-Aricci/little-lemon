@@ -34,6 +34,7 @@ function ReservationDetailsForm({ form, timeSlots, updateTimeSlots }) {
 						<Grid size={{ xs: 12, md: 6 }}>
 							<DatePicker
 								{...getFieldProps("date")}
+								id="date-input"
 								errors={errors.date}
 								onChange={(newValue) => {
 									setFieldValue("date", newValue);
@@ -52,6 +53,7 @@ function ReservationDetailsForm({ form, timeSlots, updateTimeSlots }) {
 								fullWidth
 								select
 								label="Time"
+								id="time-select"
 								error={touched.time && errors.time !== undefined}
 								helperText={touched.time && errors.time}
 								{...getFieldProps("time")}
@@ -76,6 +78,7 @@ function ReservationDetailsForm({ form, timeSlots, updateTimeSlots }) {
 
 					<TextField
 						label="No. of guests"
+						id="guest-number-input"
 						type="number"
 						error={touched.guestNumber && errors.guestNumber !== undefined}
 						helperText={touched.guestNumber && errors.guestNumber}
@@ -89,6 +92,7 @@ function ReservationDetailsForm({ form, timeSlots, updateTimeSlots }) {
 					<TextField
 						select
 						label="Occasion"
+						id="occasion-select"
 						{...getFieldProps("occasion")}
 						error={touched.occasion && errors.occasion !== undefined}
 						helperText={touched.occasion && errors.occasion}
@@ -117,6 +121,7 @@ function ReservationDetailsForm({ form, timeSlots, updateTimeSlots }) {
 					</TextField>
 					<TextField
 						label="Note"
+						id="note-input"
 						placeholder="Leave a note or a special request"
 						multiline
 						minRows={4}
