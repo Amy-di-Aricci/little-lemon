@@ -49,6 +49,9 @@ const theme = createTheme({
 					borderColor: "var(--background-grey)",
 					borderWidth: "2px 0px 0px 0px",
 				},
+				vertical: {
+					borderWidth: "0px 2px 0px 0px",
+				},
 			},
 		},
 		MuiInput: {

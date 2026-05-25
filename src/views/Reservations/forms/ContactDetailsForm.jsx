@@ -28,10 +28,6 @@ function ContactDetailsForm({ form }) {
 					</Stack>
 				</Grid>
 			</Grid>
-			<p>
-				You will receive status updates on your reservation via provided e-mail
-				address.
-			</p>
 		</form>
 	);
 }

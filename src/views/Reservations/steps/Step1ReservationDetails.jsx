@@ -45,38 +45,35 @@ function Step1({ onStepChange, onCanNavigateAwayChange }) {
 		onCanNavigateAwayChange(!formik.dirty);
 	}, [onCanNavigateAwayChange, formik.dirty]);
 	return (
-		<Stack>
-			<Stack marginY={6}>
-				<h1 className="section-heading">Reservation details</h1>
-				<Stack spacing={4} />
-				<Grid spacing={4} container>
-					<Grid size={{ md: 6, xs: 12 }}>
-						<ReservationDetailsForm
-							form={formik}
-							timeSlots={timeSlots}
-							updateTimeSlots={updateTimeSlots}
-						/>
-					</Grid>
-					<Grid size={{ md: 6, xs: 12 }}>
-						<InformationPanel />
-					</Grid>
+		<Stack spacing={4} marginY={6}>
+			<h1 className="section-heading">Reservation details</h1>
+			<Grid spacing={4} container>
+				<Grid size={{ md: 6, xs: 12 }}>
+					<ReservationDetailsForm
+						form={formik}
+						timeSlots={timeSlots}
+						updateTimeSlots={updateTimeSlots}
+					/>
 				</Grid>
-				<Divider />
-				<Button
-					sx={{
-						alignSelf: "flex-end",
-						width: "auto",
-						marginTop: "1.5rem",
-					}}
-					form="reservation-details-form"
-					color="secondary"
-					variant="contained"
-					disabled={!formik.isValid}
-					type="submit"
-				>
-					Next
-				</Button>
-			</Stack>
+				<Grid size={{ md: 6, xs: 12 }}>
+					<InformationPanel />
+				</Grid>
+			</Grid>
+			<Divider />
+			<Button
+				sx={{
+					alignSelf: "flex-end",
+					width: "auto",
+					marginTop: "1.5rem",
+				}}
+				form="reservation-details-form"
+				color="secondary"
+				variant="contained"
+				disabled={!formik.isValid}
+				type="submit"
+			>
+				Next
+			</Button>
 		</Stack>
 	);
 }

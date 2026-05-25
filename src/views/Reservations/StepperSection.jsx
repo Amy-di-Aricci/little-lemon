@@ -56,7 +56,7 @@ function StepperSection() {
 							onStepChange={() => handleNext(2)}
 							onCanNavigateAwayChange={setCanStepChange}
 						/>
-						<Step3 />
+						<Step3 onCanNavigateAwayChange={setCanStepChange} />
 					</Stepper>
 				</ReservationContextProvider>
 			</Stack>

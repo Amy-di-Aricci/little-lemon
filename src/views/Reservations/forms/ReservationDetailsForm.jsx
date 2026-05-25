@@ -102,14 +102,17 @@ function ReservationDetailsForm({ form, timeSlots, updateTimeSlots }) {
 						<MenuItem key="default" value="" disabled>
 							<em>Select occasion</em>
 						</MenuItem>
-						<MenuItem key="birthday" value="birthday">
+						<MenuItem key="birthday" value="Birthday">
 							Birthday
 						</MenuItem>
-						<MenuItem key="anniversary" value="anniversary">
+						<MenuItem key="anniversary" value="Anniversary">
 							Anniversary
 						</MenuItem>
-						<MenuItem key="engagement" value="engagement">
+						<MenuItem key="engagement" value="Engagement">
 							Engagement
+						</MenuItem>
+						<MenuItem key="casual" value="Casual">
+							Casual
 						</MenuItem>
 					</TextField>
 					<TextField

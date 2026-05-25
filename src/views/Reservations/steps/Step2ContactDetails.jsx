@@ -32,28 +32,28 @@ function Step2({ onStepChange, onCanNavigateAwayChange }) {
 		onCanNavigateAwayChange(!formik.dirty);
 	}, [onCanNavigateAwayChange, formik.dirty]);
 	return (
-		<Stack>
-			<Stack marginY={6}>
-				<h1 className="section-heading">Contact details</h1>
-			</Stack>
-			<Stack spacing={4}>
-				<ContactDetailsForm form={formik} />
-				<Divider />
-				<Button
-					form="contact-details-form"
-					sx={{
-						alignSelf: "flex-end",
-						width: "auto",
-						marginTop: "1.5rem",
-					}}
-					disabled={!formik.isValid}
-					color="secondary"
-					variant="contained"
-					type="submit"
-				>
-					Next
-				</Button>
-			</Stack>
+		<Stack marginY={6} spacing={4}>
+			<h1 className="section-heading">Contact details</h1>
+			<ContactDetailsForm form={formik} />
+			<p>
+				You will receive status updates on your reservation via provided e-mail
+				address.
+			</p>
+			<Divider />
+			<Button
+				form="contact-details-form"
+				sx={{
+					alignSelf: "flex-end",
+					width: "auto",
+					marginTop: "1.5rem",
+				}}
+				disabled={!formik.isValid}
+				color="secondary"
+				variant="contained"
+				type="submit"
+			>
+				Next
+			</Button>
 		</Stack>
 	);
 }
