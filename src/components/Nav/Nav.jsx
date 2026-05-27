@@ -24,7 +24,7 @@ function Nav() {
 	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	return (
-		<nav>
+		<nav className="box-shadow">
 			<Stack
 				className="nav-bar container"
 				direction="row"
