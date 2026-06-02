@@ -12,6 +12,7 @@ function UnsavedChangesDialog({ open, onDiscard, onAccept }) {
 		<Dialog
 			open={open}
 			onClose={onDiscard}
+			data-testid="unsaved-changes-dialog"
 			aria-labelledby="unsaved-changes-dialog-title"
 			aria-describedby="unsaved-changes-dialog-description"
 		>
@@ -29,10 +30,12 @@ function UnsavedChangesDialog({ open, onDiscard, onAccept }) {
 					padding: 2,
 				}}
 			>
-				<Button onClick={onDiscard} autoFocus>
+				<Button data-testid="cancel-button" onClick={onDiscard} autoFocus>
 					Cancel
 				</Button>
-				<Button onClick={onAccept}>Discard changes</Button>
+				<Button data-testid="accept-button" onClick={onAccept}>
+					Discard changes
+				</Button>
 			</DialogActions>
 		</Dialog>
 	);
