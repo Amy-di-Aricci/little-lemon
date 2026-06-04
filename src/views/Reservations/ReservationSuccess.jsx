@@ -1,10 +1,10 @@
-import img from "assets/404 lemon.png";
+import img from "assets/lemon_plate.png";
 import { Typography, Grid, Stack, Button } from "@mui/material";
 
 function ReservationSuccess() {
 	return (
 		<Grid marginY={6} container spacing={8} className="container">
-			<Grid size={{ md: 6, xs: 12 }}>
+			<Grid size={{ md: 6, xs: 12 }} alignContent={"center"}>
 				<img style={{ width: "100%" }} src={img} alt="Lemon on a plate"></img>
 			</Grid>
 			<Grid size={{ md: 6, xs: 12 }}>
