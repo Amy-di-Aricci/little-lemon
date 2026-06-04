@@ -1,4 +1,5 @@
 import { Stack, Button } from "@mui/material";
+import { Link } from "react-router";
 
 const { default: SpecialsCarousel } = require("components/Specials/Specials");
 
@@ -18,6 +19,8 @@ function SpecialsSection() {
 				>
 					<h1 className="section-heading">Specials</h1>
 					<Button
+						component={Link}
+						to="/order"
 						color="secondary"
 						variant="contained"
 						size="medium"
