@@ -18,6 +18,7 @@ function Step1({ onStepChange, onCanNavigateAwayChange }) {
 			guestNumber: formData.guestNumber,
 			note: formData.note,
 		},
+		validateOnMount: true,
 		onSubmit: () => {
 			updateFormData(formik.values);
 			onStepChange();
@@ -33,10 +34,10 @@ function Step1({ onStepChange, onCanNavigateAwayChange }) {
 					},
 				}),
 			guestNumber: Yup.number()
-				.min(1, "Please select a value between 1 and 20")
-				.max(20, "Please select a value between 1 and 20")
+				.min(1, "Please select a value between 1 and 20.")
+				.max(20, "Please select a value between 1 and 20.")
 				.integer()
-				.required(),
+				.required("Please provide the number of guests."),
 			occasion: Yup.string().required("Please select an occasion."),
 		}),
 	});

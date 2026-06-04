@@ -2,7 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 let mockCanNavigateAway = true;
-jest.mock("./steps/Step1ReservationDetails", () => {
+jest.mock("../steps/Step1ReservationDetails", () => {
 	return function MockStep1({ onStepChange, onCanNavigateAwayChange }) {
 		return (
 			<>
@@ -20,7 +20,7 @@ jest.mock("./steps/Step1ReservationDetails", () => {
 		);
 	};
 });
-jest.mock("./steps/Step2ContactDetails", () => {
+jest.mock("../steps/Step2ContactDetails", () => {
 	return function MockStep2({ onStepChange, onCanNavigateAwayChange }) {
 		return (
 			<>
@@ -38,10 +38,9 @@ jest.mock("./steps/Step2ContactDetails", () => {
 		);
 	};
 });
-import Reservations from "./Reservations";
+import Reservations from "../Reservations";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs from "dayjs";
 
 describe("Reservations page rendering behavior", () => {
 	test("Stepper starts with 1st step and other disabled", async () => {

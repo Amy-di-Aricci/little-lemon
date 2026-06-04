@@ -127,6 +127,9 @@ const theme = createTheme({
 								backgroundColor: "#edefee",
 								borderRadius: "8px",
 							},
+							"&.Mui-error": {
+								backgroundColor: "#f7ebeb",
+							},
 						},
 					},
 				},
@@ -138,6 +141,9 @@ const theme = createTheme({
 					boxShadow: "var(--black-shadow)",
 					"&:hover": {
 						backgroundColor: "var(--background-grey-lighten)",
+					},
+					"&.Mui-error": {
+						backgroundColor: "#f7ebeb",
 					},
 					"&.Mui-focused .MuiPickersOutlinedInput-notchedOutline": {
 						border: "none",
