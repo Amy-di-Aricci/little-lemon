@@ -10,12 +10,12 @@ import { ReservationContextProvider } from "contexts/ReservationContext";
 function StepperSection() {
 	const [currentStep, setCurrentStep] = useState(0);
 	const [furthestStep, setFurthestStep] = useState(0);
-	const [canStepChange, setCanStepChange] = useState(false);
+	const [canNavigateAway, setCanNavigateAway] = useState(false);
 	const [pendingStep, setPendingStep] = useState(null);
 	const [dialogOpen, setDialogOpen] = useState(false);
 
 	const handleStepChange = (index) => {
-		if (!canStepChange) {
+		if (!canNavigateAway) {
 			setPendingStep(index);
 			setDialogOpen(true);
 		} else {
@@ -50,13 +50,13 @@ function StepperSection() {
 					>
 						<Step1
 							onStepChange={() => handleNext(1)}
-							onCanNavigateAwayChange={setCanStepChange}
+							onCanNavigateAwayChange={setCanNavigateAway}
 						/>
 						<Step2
 							onStepChange={() => handleNext(2)}
-							onCanNavigateAwayChange={setCanStepChange}
+							onCanNavigateAwayChange={setCanNavigateAway}
 						/>
-						<Step3 onCanNavigateAwayChange={setCanStepChange} />
+						<Step3 onCanNavigateAwayChange={setCanNavigateAway} />
 					</Stepper>
 				</ReservationContextProvider>
 			</Stack>

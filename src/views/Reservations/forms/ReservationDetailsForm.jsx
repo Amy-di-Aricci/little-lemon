@@ -17,7 +17,7 @@ function ReservationDetailsForm({ form, timeSlots, updateTimeSlots }) {
 		if (values.time !== "") return;
 		if (!values.date) setFieldValue("time", "");
 
-		const isToday = values.date.isSame(dayjs(), "day");
+		const isToday = values?.date?.isSame(dayjs(), "day");
 
 		if (isToday && timeSlots.length > 0) {
 			setFieldValue("time", timeSlots[0]);
@@ -25,7 +25,6 @@ function ReservationDetailsForm({ form, timeSlots, updateTimeSlots }) {
 			setFieldValue("time", "");
 		}
 	}, [values.date, values.time, timeSlots, setFieldValue]);
-
 	return (
 		<form onSubmit={handleSubmit} id="reservation-details-form">
 			<Stack spacing={4}>
@@ -35,7 +34,6 @@ function ReservationDetailsForm({ form, timeSlots, updateTimeSlots }) {
 							<DatePicker
 								{...getFieldProps("date")}
 								id="date-input"
-								errors={errors.date}
 								onChange={(newValue) => {
 									setFieldValue("date", newValue);
 									setFieldValue("time", "");
@@ -44,7 +42,11 @@ function ReservationDetailsForm({ form, timeSlots, updateTimeSlots }) {
 								label="Date"
 								disablePast
 								slotProps={{
-									textField: { fullWidth: true },
+									textField: {
+										fullWidth: true,
+										error: errors.date,
+										helperText: errors.date,
+									},
 								}}
 							/>
 						</Grid>
