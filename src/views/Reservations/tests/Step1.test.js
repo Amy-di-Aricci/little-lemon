@@ -20,7 +20,7 @@ import { ReservationContextProvider } from "contexts/ReservationContext";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
-describe("Step 1 behavior", () => {
+describe("Step 1 form", () => {
 	beforeEach(() => {
 		useTimeSlots.mockReturnValue([["10:00", "11:00", "12:00"], jest.fn()]);
 	});
@@ -178,13 +178,13 @@ async function fillStep1(date, time, occasion, guestNumber, note) {
 
 	await act(async () => {});
 
-	if (time != null) {
+	if (time) {
 		await user.click(screen.getByRole("combobox", { name: /time/i }));
 		await user.click(await screen.findByRole("option", { name: time }));
 	}
 	await act(async () => {});
 
-	if (occasion != null) {
+	if (occasion) {
 		await user.click(screen.getByRole("combobox", { name: /occasion/i }));
 		await user.click(await screen.findByRole("option", { name: occasion }));
 	}
@@ -192,7 +192,7 @@ async function fillStep1(date, time, occasion, guestNumber, note) {
 	const guestsInput = screen.getByLabelText(/no. of guests/i);
 
 	await user.clear(guestsInput);
-	if (guestNumber != null) {
+	if (guestNumber) {
 		await user.type(guestsInput, String(guestNumber));
 	}
 
