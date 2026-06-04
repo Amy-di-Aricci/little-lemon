@@ -1,13 +1,13 @@
 import Main from "components/Main";
 import HeaderSection from "./HeaderSection";
-import StepperSection from "./StepperSection";
+import { Outlet } from "react-router";
 
 function Reservations() {
 	return (
 		<>
 			<HeaderSection />
 			<Main>
-				<StepperSection />
+				<Outlet />
 			</Main>
 		</>
 	);

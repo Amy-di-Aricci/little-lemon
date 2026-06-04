@@ -2,8 +2,26 @@ import { Stack, Grid, Button, Divider } from "@mui/material";
 import { useReservationContext } from "contexts/ReservationContext";
 import { useEffect } from "react";
 import dayjs from "dayjs";
+import { submitAPI } from "api";
+import { useNavigate } from "react-router";
 function Step3({ onCanNavigateAwayChange }) {
 	const { formData } = useReservationContext();
+	const navigate = useNavigate();
+
+	const handleClick = (e) => {
+		e.preventDefault();
+
+		try {
+			var success = submitAPI(formData);
+		} catch (e) {
+			console.log("Data submit failed");
+		}
+
+		if (success) {
+			navigate("success");
+		}
+	};
+
 	useEffect(() => {
 		onCanNavigateAwayChange(true);
 	}, [onCanNavigateAwayChange]);
@@ -62,6 +80,7 @@ function Step3({ onCanNavigateAwayChange }) {
 					width: "auto",
 					marginTop: "1.5rem",
 				}}
+				onClick={handleClick}
 				variant="contained"
 				color="secondary"
 			>
