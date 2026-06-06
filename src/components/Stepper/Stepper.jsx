@@ -5,7 +5,6 @@ function Stepper({
 	currentStep = 0,
 	furthestStep = 0,
 	onChangeStep,
-
 	children,
 }) {
 	return (
