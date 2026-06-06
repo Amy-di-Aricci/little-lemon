@@ -1,6 +1,6 @@
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
-import { FacebookOutlined, Instagram, X } from "@mui/icons-material";
+import { FacebookOutlined, GitHub, Instagram, X } from "@mui/icons-material";
 export const contactInfo = [
 	{
 		icon: PlaceOutlinedIcon,
@@ -37,5 +37,11 @@ export const socialMediaInfo = [
 		text: "X",
 		key: "x",
 		url: "https://www.x.com/",
+	},
+	{
+		icon: GitHub,
+		text: "Github repository",
+		key: "github",
+		url: "github.com/Amy-di-Aricci/little-lemon",
 	},
 ];
