@@ -17,6 +17,8 @@ The aim of this project was to use skills learned during the course in practice,
 - Forms and validation
 - Testing with Jest and React Test Library
 
+The design prototype can be viewed here: [Figma prototype](https://www.figma.com/proto/PO0SYZ86lldnGExa0Jm9YA/Little-Lemon---capstone?node-id=7-1359&t=yG0AcNPZjJWmUROE-1)
+
 ## Running the project
 To run the project locally, first clone this repository. Also ensure, that your machine has Node.js and Visual Studio Code installed.
 Next, open the project directory in Visual Studio Code. To run the project, use following command:
