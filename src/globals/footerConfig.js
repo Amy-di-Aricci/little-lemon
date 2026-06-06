@@ -42,6 +42,6 @@ export const socialMediaInfo = [
 		icon: GitHub,
 		text: "Github repository",
 		key: "github",
-		url: "github.com/Amy-di-Aricci/little-lemon",
+		url: "https://github.com/Amy-di-Aricci/little-lemon",
 	},
 ];
