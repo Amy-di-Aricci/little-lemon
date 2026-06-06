@@ -1,6 +1,7 @@
 import { Grid, Button, Stack, Typography } from "@mui/material";
 import img from "assets/404 lemon.png";
 import "./NotFound.css";
+import { Link } from "react-router";
 
 function NotFound() {
 	return (
@@ -18,7 +19,8 @@ function NotFound() {
 						back to something delicious.
 					</Typography>
 					<Button
-						href="/"
+						component={Link}
+						to="/"
 						color="secondary"
 						variant="contained"
 						size="medium"

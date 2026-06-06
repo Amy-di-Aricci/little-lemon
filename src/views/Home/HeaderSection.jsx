@@ -2,6 +2,7 @@ import { Stack, Button, Grid } from "@mui/material";
 import symbol from "assets/symbol_multicolor.png";
 import Header from "../../components/Header/Header";
 import background from "assets/3d3cce7a3104bf255ed0e69195e2a157338c1bff.jpg";
+import { Link } from "react-router";
 
 function HeaderSection() {
 	return (
@@ -27,6 +28,8 @@ function HeaderSection() {
 								traditional recipes served with a modern twist.
 							</p>
 							<Button
+								component={Link}
+								to="/reservations"
 								variant="contained"
 								color="secondary"
 								sx={{

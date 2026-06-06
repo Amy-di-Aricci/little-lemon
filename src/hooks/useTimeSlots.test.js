@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react";
+import { renderHook, act, waitFor } from "@testing-library/react";
 import { useTimeSlots } from "./useTimeSlots";
 import dayjs from "dayjs";
 describe("useTimeSlots hook tests", () => {
@@ -10,14 +10,18 @@ describe("useTimeSlots hook tests", () => {
 	test("Returns an array after dispatching new date", () => {
 		const { result } = renderHook(() => useTimeSlots());
 		const [timeSlots, dispatch] = result.current;
-		dispatch(dayjs("2026-03-13"));
+		waitFor(() => {
+			dispatch(dayjs("2026-03-13"));
+		});
 
 		expect(Array.isArray(timeSlots)).toBe(true);
 	});
 	test("Returns array of strings in HH:mm format", () => {
 		const { result } = renderHook(() => useTimeSlots());
 		const [timeSlots, dispatch] = result.current;
-		dispatch(dayjs("2026-03-13"));
+		waitFor(() => {
+			dispatch(dayjs("2026-03-13"));
+		});
 
 		expect(Array.isArray(timeSlots)).toBe(true);
 		expect(timeSlots.length).toBeGreaterThanOrEqual(0);
